@@ -8,12 +8,16 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     [SerializeField] public Canvas canvas;
 
-    public Componente copia;
+    public Componente generado;
+    public string tipoGenerado;
+    Vector3 posOriginal; 
 
     private RectTransform rectTransform;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+        posOriginal = new Vector3(rectTransform.position.x, rectTransform.position.y, rectTransform.position.z);
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -39,6 +43,19 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        //Instantiate(copia, new Vector2(179, 96), transform.rotation);
+
+        Debug.Log("OnPointerUp");
+
+        if (tipoGenerado == "Resistencia")
+        {
+            Instantiate(generado, new Vector2(rectTransform.position.x, rectTransform.position.y), transform.rotation);
+            rectTransform.SetPositionAndRotation(posOriginal, transform.rotation);
+
+        }
+        else if (tipoGenerado == "Fuente")
+        {
+            Instantiate(generado, new Vector2(rectTransform.position.x, rectTransform.position.y), transform.rotation);
+            rectTransform.SetPositionAndRotation(posOriginal, transform.rotation);
+        }
     }
 }
