@@ -12,6 +12,9 @@ public class Componente : MonoBehaviour
     public bool conectadoInicial = false;
     public bool conectadoFinal = false;
 
+    public bool rotado= false;
+
+    public KeyCode tecla;
 
     public Componente(string nombre)
     {
@@ -42,6 +45,28 @@ public class Componente : MonoBehaviour
             conectadoFinal = true;
         }
 
+        if (Input.GetKeyDown(tecla))
+        {
+            rotar();
+        }
+
+    }
+
+    public void rotar()
+    {
+
+        if (!rotado)
+        {
+            Debug.Log("Se ha rotado");
+            transform.Rotate(0, 0, -90);
+            rotado = true;
+        }
+
+        else
+        {
+            transform.Rotate(0, 0, 90);
+            rotado = false;
+        }
 
     }
 }
