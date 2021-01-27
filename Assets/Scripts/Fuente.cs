@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Fuente : Componente
 {
-    public float fuente;
+    public float voltaje;
 
     public Fuente(string nombre, float fuenteVoltaje)
     {
         this.nombre = nombre;
-        this.fuente = fuenteVoltaje;
+        this.voltaje = fuenteVoltaje;
     }
-
-
 }

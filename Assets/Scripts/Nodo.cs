@@ -8,11 +8,18 @@ public class Nodo : MonoBehaviour
     public KeyCode ant, sig;
 
     public float voltaje_V;
-    public float amperaje_I = Random.Range(0,1000);
+    public float amperaje_I;
     public List<Componente> conexionesAnt = new List<Componente>();
     public List<Componente> conexionesSig = new List<Componente>();
     
     public Nodo() { }
+
+    public void Start()
+    {
+        voltaje_V = Random.Range(0, 10);
+        amperaje_I = Random.Range(0, 1000);
+    }
+
 
     public void Update()
     {
@@ -30,6 +37,14 @@ public class Nodo : MonoBehaviour
             {
                 print(i.nombre);
 
+            }
+        }
+
+        if (conexionesSig.Count > 0)
+        {
+            foreach(Componente i in conexionesSig)
+            {
+ 
             }
         }
     }

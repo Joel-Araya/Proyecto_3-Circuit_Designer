@@ -5,6 +5,7 @@ using UnityEngine;
 public class Componente : MonoBehaviour
 {
     public string nombre;
+    public float amperaje;
 
     public Nodo inicial;
     public Nodo final;
@@ -13,8 +14,6 @@ public class Componente : MonoBehaviour
     public bool conectadoFinal = false;
 
     public bool rotado= false;
-
-    public KeyCode tecla;
 
     public Componente(string nombre)
     {
@@ -44,12 +43,20 @@ public class Componente : MonoBehaviour
             final.conexionesAnt.Add(this);
             conectadoFinal = true;
         }
+    }
 
-        if (Input.GetKeyDown(tecla))
+    public void OnMouseDrag()
+    {
+        transform.position = Input.mousePosition;
+    }
+
+    public void OnMouseOver()
+    {
+        Debug.Log("El mouse está sobre el componente");
+        if (Input.GetMouseButtonDown(1)) 
         {
             rotar();
-        }
-
+        }        
     }
 
     public void rotar()
