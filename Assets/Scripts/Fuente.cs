@@ -11,4 +11,10 @@ public class Fuente : Componente
         this.nombre = nombre;
         this.voltaje = fuenteVoltaje;
     }
+
+    public override void mostrarDatos()
+    {
+        
+    }
+
 }

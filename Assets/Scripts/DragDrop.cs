@@ -7,7 +7,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 {
 
     [SerializeField] public Canvas canvas;
-
+    public bool simulación;
     public Componente generado;
     public string tipoGenerado;
     Vector3 posOriginal; 
@@ -18,6 +18,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         rectTransform = GetComponent<RectTransform>();
         posOriginal = new Vector3(rectTransform.position.x, rectTransform.position.y, rectTransform.position.z);
+        
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -26,8 +27,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        if (!FindObjectOfType<BotonCambioModo>().modoSimulacion)
+        {
+            //Debug.Log("OnDrag");
+            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -43,19 +47,21 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnPointerUp(PointerEventData eventData)
     {
-
-        //Debug.Log("OnPointerUp");
-
-        if (tipoGenerado == "Resistencia")
+        if (!FindObjectOfType<BotonCambioModo>().modoSimulacion)
         {
-            Instantiate(generado, new Vector2(rectTransform.position.x, rectTransform.position.y), transform.rotation);
-            rectTransform.SetPositionAndRotation(posOriginal, transform.rotation);
+            //Debug.Log("OnPointerUp");
 
-        }
-        else if (tipoGenerado == "Fuente")
-        {
-            Instantiate(generado, new Vector2(rectTransform.position.x, rectTransform.position.y), transform.rotation);
-            rectTransform.SetPositionAndRotation(posOriginal, transform.rotation);
+            if (tipoGenerado == "Resistencia")
+            {
+                Instantiate(generado, new Vector2(rectTransform.position.x, rectTransform.position.y), transform.rotation);
+                rectTransform.SetPositionAndRotation(posOriginal, transform.rotation);
+
+            }
+            else if (tipoGenerado == "Fuente")
+            {
+                Instantiate(generado, new Vector2(rectTransform.position.x, rectTransform.position.y), transform.rotation);
+                rectTransform.SetPositionAndRotation(posOriginal, transform.rotation);
+            }
         }
     }
 }

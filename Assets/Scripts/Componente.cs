@@ -26,9 +26,10 @@ public class Componente : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+    
     }
 
+    
 
     public void Update()
     {
@@ -43,20 +44,37 @@ public class Componente : MonoBehaviour
             final.conexionesAnt.Add(this);
             conectadoFinal = true;
         }
+
+        if (!FindObjectOfType<BotonCambioModo>().modoSimulacion)
+        {
+            mostrarDatos();    
+        }
+    }
+
+    public virtual void mostrarDatos()
+    {
+        
     }
 
     public void OnMouseDrag()
     {
-        transform.position = Input.mousePosition;
+        if (!FindObjectOfType<BotonCambioModo>().modoSimulacion)
+        {
+            transform.position = Input.mousePosition;
+        }
     }
 
     public void OnMouseOver()
     {
         Debug.Log("El mouse está sobre el componente");
-        if (Input.GetMouseButtonDown(1)) 
+
+        if (!FindObjectOfType<BotonCambioModo>().modoSimulacion)
         {
-            rotar();
-        }        
+            if (Input.GetMouseButtonDown(1))
+            {
+                rotar();
+            }
+        }
     }
 
     public void rotar()

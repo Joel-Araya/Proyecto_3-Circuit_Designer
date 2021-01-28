@@ -12,5 +12,10 @@ public class Resistencia : Componente
         this.nombre = nombre;
         this.resistencia = resistencia;
     }
-    
+
+    public override void mostrarDatos()
+    {
+
+    }
+
 }
