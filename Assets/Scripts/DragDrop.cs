@@ -23,9 +23,7 @@ public class DragDrop : MonoBehaviour
     {
         if (!FindObjectOfType<BotonCambioModo>().modoSimulacion)
         {
-            //Debug.Log("OnDrag");
-            //rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
-            transform.position = Input.mousePosition;
+            transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
     }
 
@@ -39,7 +37,7 @@ public class DragDrop : MonoBehaviour
             {
                 Instantiate(generado, new Vector2(transform.position.x, transform.position.y), transform.rotation);
                 transform.SetPositionAndRotation(posOriginal, transform.rotation);
-
+                
             }
             else if (tipoGenerado == "Fuente")
             {

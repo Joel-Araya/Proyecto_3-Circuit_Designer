@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Componente : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Componente : MonoBehaviour
     public bool conectadoFinal = false;
 
     public bool rotado= false;
+
+    [SerializeField] public Canvas canvas;
 
     public Componente(string nombre)
     {
@@ -53,14 +56,14 @@ public class Componente : MonoBehaviour
 
     public virtual void mostrarDatos()
     {
-        
+        //Camera camara = FindObjectOfType<Camera>();
     }
 
     public void OnMouseDrag()
     {
         if (!FindObjectOfType<BotonCambioModo>().modoSimulacion)
         {
-            transform.position = Input.mousePosition;
+            transform.position = (Vector2) Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
     }
 
@@ -76,22 +79,12 @@ public class Componente : MonoBehaviour
             }
         }
     }
+    
 
     public void rotar()
     {
-
-        if (!rotado)
-        {
-            Debug.Log("Se ha rotado");
-            transform.Rotate(0, 0, -90);
-            rotado = true;
-        }
-
-        else
-        {
-            transform.Rotate(0, 0, 90);
-            rotado = false;
-        }
+        Debug.Log("Se ha rotado");
+        transform.Rotate(0, 0, -90);
 
     }
 }
