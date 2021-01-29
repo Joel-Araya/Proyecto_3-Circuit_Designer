@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Nodo : MonoBehaviour
+public class Nodo : Componente
 {
 
     public KeyCode ant, sig;
