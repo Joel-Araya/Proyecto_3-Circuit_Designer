@@ -12,10 +12,11 @@ public class Out : MonoBehaviour
     private In[] inScript;
 
     void Awake(){
-        inScript = GameObject.FindObjectsOfType<In> ();
+        //inScript = GameObject.FindObjectsOfType<In> ();
     }
     
     void OnMouseDown(){
+        inScript = GameObject.FindObjectsOfType<In> ();
         Instantiate(bruh,transform.position, transform.rotation);
         lnCreated = true;
         //lineDrawer = GameObject.FindObjectOfType<LineDrawer> ();

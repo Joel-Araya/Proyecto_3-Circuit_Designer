@@ -104,6 +104,7 @@ MonoBehaviour:
   conectadoInicial: 0
   conectadoFinal: 0
   rotado: 0
+  canvas: {fileID: 0}
   resistencia: 0
   voltajeRecibido: 0
 --- !u!61 &-5318653499443027974
@@ -159,7 +160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6525339943811378235}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3.34, y: 0.14, z: 0}
+  m_LocalPosition: {x: 3.34, y: 0.14, z: 1}
   m_LocalScale: {x: 0.61, y: 1.5816326, z: 25.366999}
   m_Children: []
   m_Father: {fileID: 5391899188829813815}
@@ -269,7 +270,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7626374751782828992}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -3.26, y: 0.1, z: 0}
+  m_LocalPosition: {x: -3.26, y: 0.1, z: 1}
   m_LocalScale: {x: 0.61, y: 1.5816326, z: 25.366999}
   m_Children: []
   m_Father: {fileID: 5391899188829813815}

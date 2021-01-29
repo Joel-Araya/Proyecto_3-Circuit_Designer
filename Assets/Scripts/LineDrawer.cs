@@ -11,7 +11,9 @@ public class LineDrawer : MonoBehaviour
     private bool readyLn;
     private bool lnDone = false;
 
-    
+    private int cornerPoint;
+    private int lastPoint = 1;
+
     private float distance;
 
     void Start()
@@ -34,21 +36,31 @@ public class LineDrawer : MonoBehaviour
                 if (Input.GetMouseButton(0))
                 {
                     mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    lineRend.SetPosition(1, new Vector3(mousePos.x, mousePos.y, 0f));
+                    lineRend.SetPosition(lastPoint, new Vector3(mousePos.x, mousePos.y, 0f));
                     distance = (mousePos - startmousePos).magnitude;
                 }
 
                 if (Input.GetMouseButtonUp(0) && readyLn == true)
                 {
                     mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    lineRend.SetPosition(1, new Vector3(mousePos.x, mousePos.y, 0f));
+                    lineRend.SetPosition(lastPoint, new Vector3(mousePos.x, mousePos.y, 0f));
                     lnDone = true;
                 }
 
                 if (Input.GetMouseButtonUp(0) && readyLn == false)
                 {
-                    mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    lineRend.SetPosition(1, new Vector3(startmousePos.x, startmousePos.y, 0f));
+                    /*mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    lineRend.SetPosition(1, new Vector3(startmousePos.x, startmousePos.y, 0f));*/
+                    Destroy(this.gameObject);
+                }
+
+                if (Input.GetMouseButtonUp(1))
+                {
+                    lineRend.positionCount += 1;
+                    Debug.Log(lineRend.positionCount);
+                    cornerPoint = lineRend.positionCount-2;
+                    lastPoint +=1;
+                    lineRend.SetPosition(cornerPoint, new Vector3(mousePos.x, mousePos.y, 0f));
                 }
         }
     }
