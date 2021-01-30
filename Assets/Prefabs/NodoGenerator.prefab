@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6705075926810931330}
   - component: {fileID: 3047621020816710655}
-  - component: {fileID: 6326077044910458197}
+  - component: {fileID: 5308762835927008016}
   m_Layer: 0
   m_Name: NodoGenerator
   m_TagString: Untagged
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6326077044910458197
+--- !u!114 &5308762835927008016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,12 +91,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2763166037475712009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94d8a8f7b55f50d4d9683e56ddcd2fd9, type: 3}
+  m_Script: {fileID: 11500000, guid: 6065d243469af0a4abc54b702c9f04bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ant: 0
-  sig: 0
-  voltaje_V: 0
-  amperaje_I: 0
-  conexionesAnt: []
-  conexionesSig: []
+  "simulaci\xF3n": 0
+  generado: {fileID: 8914894580859178292, guid: 3a97441e8f89ec9419398ab6184ae466,
+    type: 3}
+  tipoGenerado: Nodo

@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 3651375254327833177}
   - component: {fileID: 8914894580859178292}
   - component: {fileID: 3166166221550659276}
+  - component: {fileID: -3426888258565247178}
   m_Layer: 0
   m_Name: Nodo
   m_TagString: Untagged
@@ -208,16 +209,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   amperaje: 0
+  voltaje: 0
+  tipo: Nodo
   inicial: {fileID: 0}
   final: {fileID: 0}
   conectadoInicial: 0
   conectadoFinal: 0
   rotado: 0
-  canvas: {fileID: 0}
+  conectando: 0
+  esperando: 0
   ant: 0
   sig: 0
-  voltaje_V: 0
-  amperaje_I: 0
   conexionesAnt: []
   conexionesSig: []
 --- !u!114 &3166166221550659276
@@ -235,3 +237,16 @@ MonoBehaviour:
   isOnObj: 0
   bruh: {fileID: 5435157088498249127, guid: d0accb36af02a424eb6092866e039127, type: 3}
   lnCreated: 0
+--- !u!65 &-3426888258565247178
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7933127635472903165}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0599998, y: 1.0599998, z: 0.19999999}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -11,7 +11,7 @@ public class In : MonoBehaviour
 
     public void UpdatelnCreated(bool boollncreated){
         lnCreated = boollncreated;
-        Debug.Log("Line created = " + lnCreated);
+        //Debug.Log("Line created = " + lnCreated);
         lineDrawer = GameObject.FindObjectsOfType<LineDrawer> ();
     }
 
@@ -23,17 +23,19 @@ public class In : MonoBehaviour
             foreach(LineDrawer i in lineDrawer){
                 i.UpdateIsOnObj(isOnObj);
             }
+            GetComponentInParent<Componente>().conectando = true;
         } 
     }
 
     void OnMouseExit()
     {
         if (lnCreated == true){
-            Debug.Log("Mouse is NOT over In");
+            //Debug.Log("Mouse is NOT over In");
             isOnObj = false;
             foreach(LineDrawer i in lineDrawer){
                 i.UpdateIsOnObj(isOnObj);
             }
+            GetComponentInParent<Componente>().conectando = false;
         }
 
     }

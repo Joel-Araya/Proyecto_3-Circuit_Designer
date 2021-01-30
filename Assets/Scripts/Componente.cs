@@ -7,17 +7,20 @@ public class Componente : MonoBehaviour
 {
     public string nombre;
     public float amperaje;
+    public float voltaje;
 
+    public string tipo;
     public Nodo inicial;
     public Nodo final;
 
+    public bool datosObtenidos=false;
     public bool conectadoInicial = false;
     public bool conectadoFinal = false;
 
     public bool rotado= false;
 
-    [SerializeField] public Canvas canvas;
-
+    public bool conectando=false;
+    public bool esperando = false;
     public Componente(string nombre)
     {
         this.nombre = nombre;
@@ -32,10 +35,44 @@ public class Componente : MonoBehaviour
     
     }
 
-    
-
-    public void Update()
+    public void FixedUpdate()
     {
+        if (conectando)
+        {
+            Componente[] componentes = FindObjectsOfType<Componente>();
+
+            foreach (Componente componente in componentes)
+            {
+                if (componente.esperando)
+                {
+                    Debug.Log("El tipo del primer componente es " + componente.tipo);
+                    if (componente.tipo == "Nodo")
+                    {
+                        componente.esperando = false;
+                        componente.conectando = false;
+                        conectando = false;
+                        esperando = false;
+                        inicial = (Nodo)componente;
+                        break;
+                    }
+
+                    else if (componente.tipo == "Fuente" || componente.tipo == "Resistencia")
+                    {
+                        componente.esperando = false;
+                        componente.conectando = false;
+                        conectando = false;
+                        esperando = false;
+                        componente.final = (Nodo)this;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    public virtual void Update()
+    {
+
         if (conectadoInicial == false && inicial != null)
         {
             inicial.conexionesSig.Add(this);
@@ -46,12 +83,20 @@ public class Componente : MonoBehaviour
         {
             final.conexionesAnt.Add(this);
             conectadoFinal = true;
+            
         }
 
-        if (!FindObjectOfType<BotonCambioModo>().modoSimulacion)
+        if (FindObjectOfType<BotonCambioModo>().modoSimulacion)
         {
-            mostrarDatos();    
+            mostrarDatos();
         }
+        
+
+    }
+
+    public virtual void setValue()
+    {
+
     }
 
     public virtual void mostrarDatos()
@@ -69,7 +114,7 @@ public class Componente : MonoBehaviour
 
     public void OnMouseOver()
     {
-        Debug.Log("El mouse está sobre el componente");
+        //Debug.Log("El mouse está sobre el componente");
 
         if (!FindObjectOfType<BotonCambioModo>().modoSimulacion)
         {
@@ -81,10 +126,13 @@ public class Componente : MonoBehaviour
     }
     
 
-    public void rotar()
+    public virtual void rotar()
     {
-        Debug.Log("Se ha rotado");
-        transform.Rotate(0, 0, -90);
+        //Debug.Log("Se ha rotado");
+        if (inicial==null && final==null)
+        {
+            transform.Rotate(0, 0, -90);
+        }
 
     }
 }

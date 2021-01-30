@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Nodo : Componente
 {
-
-    public KeyCode ant, sig;
-
-    public float voltaje_V;
-    public float amperaje_I;
     public List<Componente> conexionesAnt = new List<Componente>();
     public List<Componente> conexionesSig = new List<Componente>();
     
@@ -16,37 +11,40 @@ public class Nodo : Componente
 
     public void Start()
     {
-        voltaje_V = Random.Range(0, 10);
-        amperaje_I = Random.Range(0, 1000);
+        voltaje = Random.Range(0, 10);
+        amperaje = Random.Range(0, 1000);
     }
 
 
-    public void Update()
+    public override void Update()
     {
-        if (Input.GetKeyDown(ant))
-        {
-            foreach(Componente i in conexionesAnt)
-            {
-                print(i.nombre);
-
-            }
-        }
-        if (Input.GetKeyDown(sig))
-        {
-            foreach(Componente i in conexionesSig)
-            {
-                print(i.nombre);
-
-            }
-        }
-
         if (conexionesSig.Count > 0)
         {
-            foreach(Componente i in conexionesSig)
+            foreach(Componente componente in conexionesSig)
             {
- 
+                componente.amperaje = amperaje;
+                componente.voltaje = voltaje;
+
+                if (componente.tipo == "Resistencia")
+                {
+                    componente.setValue();
+                }
             }
         }
+    }
+
+    public override void rotar()
+    {
+        if (conexionesSig.Count==0 && conexionesAnt.Count==0)
+        {
+            transform.Rotate(0, 0, -90);
+        }
+
+    }
+
+    public override void mostrarDatos()
+    {
+        Debug.Log("En este nodo el voltaje es " + voltaje + " y el amperaje es " + amperaje);
     }
 
 }

@@ -99,12 +99,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   amperaje: 0
+  voltaje: 0
+  tipo: Fuente
   inicial: {fileID: 0}
   final: {fileID: 0}
   conectadoInicial: 0
   conectadoFinal: 0
   rotado: 0
-  voltaje: 0
+  conectando: 0
+  esperando: 0
 --- !u!61 &-1730167702704024872
 BoxCollider2D:
   m_ObjectHideFlags: 0

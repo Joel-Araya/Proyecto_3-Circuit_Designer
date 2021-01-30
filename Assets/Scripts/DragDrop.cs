@@ -43,6 +43,11 @@ public class DragDrop : MonoBehaviour
             {
                 Instantiate(generado, new Vector2(transform.position.x, transform.position.y), transform.rotation);
                 transform.SetPositionAndRotation(posOriginal, transform.rotation);
+            }            
+            else if (tipoGenerado == "Nodo")
+            {
+                Instantiate(generado, new Vector2(transform.position.x, transform.position.y), transform.rotation);
+                transform.SetPositionAndRotation(posOriginal, transform.rotation);
             }
         }
     }

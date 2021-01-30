@@ -14,7 +14,7 @@ public class Out : MonoBehaviour
     void Awake(){
         //inScript = GameObject.FindObjectsOfType<In> ();
     }
-    
+
     void OnMouseDown(){
         inScript = GameObject.FindObjectsOfType<In> ();
         Instantiate(bruh,transform.position, transform.rotation);
@@ -23,15 +23,28 @@ public class Out : MonoBehaviour
         foreach(In i in inScript){
                 i.UpdatelnCreated(lnCreated);
             }
+        GetComponentInParent<Componente>().esperando=true;
+
+
+        if (GetComponentInParent<Componente>().tipo == "nodo")
+        {
+            bruh.nodoP = GetComponentInParent<Nodo>();
+        }
+        else
+        {
+            bruh.nodoP = GetComponentInParent<Componente>().final;
+        }
+
+
     }
 
     void OnMouseOver()
     {            
-        Debug.Log("Mouse is over OUT");
+        //Debug.Log("Mouse is over OUT");
     }
 
     void OnMouseExit()
     {
-        Debug.Log("Mouse is NOT over OUT");
+        //Debug.Log("Mouse is NOT over OUT");
     }
 }

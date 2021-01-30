@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Fuente : Componente
 {
-    public float voltaje;
 
     public Fuente(string nombre, float fuenteVoltaje)
     {
@@ -14,7 +13,7 @@ public class Fuente : Componente
 
     public override void mostrarDatos()
     {
-        
+        Debug.Log("Esta fuente se llama " + nombre + " y su valor es " + voltaje);
     }
 
 }
