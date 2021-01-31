@@ -16,6 +16,8 @@ public class LineDrawer : MonoBehaviour
 
     private float distance;
 
+    // Obtiene el componente LineRenderer, ademas de que establece el punto 0 del cable en donde 
+    // está el mouse
     void Start()
     {
         startmousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -24,11 +26,15 @@ public class LineDrawer : MonoBehaviour
         lineRend.SetPosition(0, new Vector3(startmousePos.x, startmousePos.y, 0f));
     }
 
+    // Actualiza cuando la linea ha sido creada 
     public void UpdateIsOnObj(bool isOnObj){
         readyLn = isOnObj;
         //Debug.Log("bruh"+readyLn);
     }
 
+    // Se encarga de establecer el final de la linea, dependiendo de que si el click izquierdo es 
+    // presionado y la linea haya sido creada, ademas, si el click derecho es presionado, la linea
+    // se dobla en una esquina.
     void Update()
     {
         if (lnDone == false)
@@ -77,6 +83,7 @@ public class LineDrawer : MonoBehaviour
         
     }
 
+    // Se encarga de encargar cuando esta encima de un boton.
     public void OnMouseEnter()
     {
         if (FindObjectOfType<BotonCambioModo>().modoSimulacion)
@@ -85,8 +92,9 @@ public class LineDrawer : MonoBehaviour
         }
     }
 
+    /*
     public void OnMouseExit()
     {
 
-    }
+    }*/
 }

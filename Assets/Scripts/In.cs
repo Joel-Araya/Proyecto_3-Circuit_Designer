@@ -9,12 +9,15 @@ public class In : MonoBehaviour
     public LineDrawer bruh;
     public bool lnCreated = false;
 
+    // Actualiza lnCreated, quien verifica que el cable haya sido creado, para preparar a 
+    // In a recibir dicho cable
     public void UpdatelnCreated(bool boollncreated){
         lnCreated = boollncreated;
         //Debug.Log("Line created = " + lnCreated);
         lineDrawer = GameObject.FindObjectsOfType<LineDrawer> ();
     }
 
+    // Detecta cuando el mouse está por encima de IN 
     void OnMouseOver()
     {
         if (lnCreated == true){
@@ -27,6 +30,7 @@ public class In : MonoBehaviour
         } 
     }
 
+    // Detecta cuado el mouse ya no esta sobre IN
     void OnMouseExit()
     {
         if (lnCreated == true){
