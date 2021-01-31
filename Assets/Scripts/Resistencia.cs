@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+///<summary>
+// Esta clase define el componente resistencia del circuito
+///</summary>
 public class Resistencia : Componente
 {
     public float resistencia;
@@ -12,6 +15,9 @@ public class Resistencia : Componente
         this.resistencia = resistencia;
     }
 
+    ///<summary>
+    // Calcula el valor del amperaje de acuerdo a la ley de Ohm
+    ///</summary>
     public override void setValue()
     {
         amperaje = (voltaje / resistencia)*1000;

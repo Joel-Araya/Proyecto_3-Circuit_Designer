@@ -14,9 +14,11 @@ public class Out : MonoBehaviour
     /*void Awake(){
         //inScript = GameObject.FindObjectsOfType<In> ();
     }*/
-
+    ///<summary>
     // Detecta cuando es presionado el click izquierdo, para crear la linea en la posicion del 
     // mouse, ademas se encarga de detectar con quien se conecta el cable
+    ///</summary>
+
     void OnMouseDown(){
         inScript = GameObject.FindObjectsOfType<In> ();
         Instantiate(bruh,transform.position, transform.rotation);

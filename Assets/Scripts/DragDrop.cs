@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+///<summary>
+// Permite mover objetos e instanciar los componentes del circuito
+///</summary>
 public class DragDrop : MonoBehaviour
 {
 

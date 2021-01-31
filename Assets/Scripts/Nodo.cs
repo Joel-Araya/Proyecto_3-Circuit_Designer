@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+///<summary>
+// Esta clase define el comportamiento que tendrán los nodos al interactuar con otros componentes
+///</summary>
 public class Nodo : Componente
 {
     public List<Componente> conexionesAnt = new List<Componente>();

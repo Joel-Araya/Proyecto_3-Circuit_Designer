@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+///<summary>
+// Contiene al componente fuente del circuito
+///</summary>
 public class Fuente : Componente
 {
 

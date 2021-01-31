@@ -8,9 +8,11 @@ public class In : MonoBehaviour
     private LineDrawer[] lineDrawer; 
     public LineDrawer bruh;
     public bool lnCreated = false;
-
+    ///<summary>
     // Actualiza lnCreated, quien verifica que el cable haya sido creado, para preparar a 
     // In a recibir dicho cable
+    ///</summary>
+
     public void UpdatelnCreated(bool boollncreated){
         lnCreated = boollncreated;
         //Debug.Log("Line created = " + lnCreated);

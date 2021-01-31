@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+///<summary>
+// Esta clase define los comportamientos que seguiran los respectivos componentes de un circuito
+///</summary>
 public class Componente : MonoBehaviour
 {
     public string nombre;
@@ -105,6 +108,9 @@ public class Componente : MonoBehaviour
         //Camera camara = FindObjectOfType<Camera>();
     }
 
+    ///<summary>
+    // Permite mover los componentes instanceados
+    ///</summary>
     public void OnMouseDrag()
     {
         if (!FindObjectOfType<BotonCambioModo>().modoSimulacion)
@@ -113,6 +119,9 @@ public class Componente : MonoBehaviour
         }
     }
 
+    ///<summary>
+    // Muestra los datos de los componentes cuando el mouse se encuentra encima
+    ///</summary>
     public void OnMouseOver()
     {
         //Debug.Log("El mouse está sobre el componente");
@@ -133,6 +142,9 @@ public class Componente : MonoBehaviour
         }
     }
 
+    ///<summary>
+    // Permite rotar componentes
+    ///</summary>
     public virtual void rotar()
     {
         //Debug.Log("Se ha rotado");

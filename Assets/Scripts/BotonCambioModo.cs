@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+///<summary>
+// Permite cambiar entre el modo simulación y el modo diseño
+///</summary>
 public class BotonCambioModo : MonoBehaviour
 {
     public bool modoSimulacion = false;

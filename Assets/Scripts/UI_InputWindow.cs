@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+///<summary>
+// Permite mostrar un canvas que contiene los InputFields para introducir el nombre y valor de los componentes
+///</summary>
 public class UI_InputWindow : MonoBehaviour
 {
     public Componente comp;
