@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class DragDrop : MonoBehaviour
 {
 
-    //[SerializeField] public Canvas canvas;
+    [SerializeField] private UI_InputWindow inputWindow;
     public bool simulación;
     public Componente generado;
     public string tipoGenerado;
@@ -37,13 +37,18 @@ public class DragDrop : MonoBehaviour
             {
                 Instantiate(generado, new Vector2(transform.position.x, transform.position.y), transform.rotation);
                 transform.SetPositionAndRotation(posOriginal, transform.rotation);
-                
+
+                generado.nombrando = true;
             }
+
             else if (tipoGenerado == "Fuente")
             {
                 Instantiate(generado, new Vector2(transform.position.x, transform.position.y), transform.rotation);
                 transform.SetPositionAndRotation(posOriginal, transform.rotation);
+
+                generado.nombrando = true;
             }            
+
             else if (tipoGenerado == "Nodo")
             {
                 Instantiate(generado, new Vector2(transform.position.x, transform.position.y), transform.rotation);

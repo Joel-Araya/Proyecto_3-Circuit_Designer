@@ -8,6 +8,7 @@ public class Componente : MonoBehaviour
     public string nombre;
     public float amperaje;
     public float voltaje;
+    public bool nombrando = false;
 
     public string tipo;
     public Nodo inicial;
@@ -95,6 +96,11 @@ public class Componente : MonoBehaviour
     }
 
     public virtual void setValue()
+    {
+
+    }
+
+    public virtual void setValue(float resistencia)
     {
 
     }

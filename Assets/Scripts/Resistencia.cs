@@ -14,9 +14,21 @@ public class Resistencia : Componente
 
     public override void setValue()
     {
-        resistencia = voltaje / (amperaje/1000);
+        amperaje = (voltaje / resistencia)*1000;
+
+        if (final != null)
+        {
+            final.amperaje = amperaje;
+            final.voltaje = voltaje;
+        }
+        
+        //resistencia = voltaje / (amperaje/1000);
     }
 
+    public override void setValue(float resistencia)
+    {
+        this.resistencia = resistencia;
+    }
     public override void mostrarDatos()
     {
         Debug.Log("Esta resistencia se llama " + nombre + " y su valor es " + resistencia);
