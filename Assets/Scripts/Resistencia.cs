@@ -31,7 +31,7 @@ public class Resistencia : Componente
     }
     public override void mostrarDatos()
     {
-        Debug.Log("Esta resistencia se llama " + nombre + " y su valor es " + resistencia);
+        Debug.Log("Esta resistencia se llama " + nombre + " y su valor es " + resistencia + " Ω");
     }
 
 }

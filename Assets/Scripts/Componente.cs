@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Componente : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class Componente : MonoBehaviour
             {
                 if (componente.esperando)
                 {
-                    Debug.Log("El tipo del primer componente es " + componente.tipo);
+                    //Debug.Log("El tipo del primer componente es " + componente.tipo);
                     if (componente.tipo == "Nodo")
                     {
                         componente.esperando = false;
@@ -95,15 +96,9 @@ public class Componente : MonoBehaviour
 
     }
 
-    public virtual void setValue()
-    {
+    public virtual void setValue() {  }
 
-    }
-
-    public virtual void setValue(float resistencia)
-    {
-
-    }
+    public virtual void setValue(float resistencia){  }
 
     public virtual void mostrarDatos()
     {
@@ -129,8 +124,14 @@ public class Componente : MonoBehaviour
                 rotar();
             }
         }
+        else
+        {
+            if (tipo == "Nodo")
+            {
+                mostrarDatos();
+            }
+        }
     }
-    
 
     public virtual void rotar()
     {

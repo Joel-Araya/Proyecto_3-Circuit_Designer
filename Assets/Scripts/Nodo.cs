@@ -44,7 +44,7 @@ public class Nodo : Componente
 
     public override void mostrarDatos()
     {
-        Debug.Log("En este nodo el voltaje es " + voltaje + " y el amperaje es " + amperaje);
+        Debug.Log("En este nodo el voltaje es " + voltaje + " V y el amperaje es " + amperaje + " mA");
     }
 
 }

@@ -18,7 +18,7 @@ public class In : MonoBehaviour
     void OnMouseOver()
     {
         if (lnCreated == true){
-            Debug.Log("Mouse is over In");
+            //Debug.Log("Mouse is over In");
             isOnObj = true;
             foreach(LineDrawer i in lineDrawer){
                 i.UpdateIsOnObj(isOnObj);

@@ -8,6 +8,6 @@ public class ButtonResponse : MonoBehaviour
     public void cerrarUITextField()
     {
         FindObjectOfType<UI_InputWindow>().setHide();
-        Debug.Log("CerrarVentana");
+        //Debug.Log("CerrarVentana");
     }
 }

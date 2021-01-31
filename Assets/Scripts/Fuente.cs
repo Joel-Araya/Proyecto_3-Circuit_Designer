@@ -13,7 +13,7 @@ public class Fuente : Componente
 
     public override void mostrarDatos()
     {
-        Debug.Log("Esta fuente se llama " + nombre + " y su valor es " + voltaje);
+        Debug.Log("Esta fuente se llama " + nombre + " y su valor es " + voltaje + " V");
     }
 
 }
